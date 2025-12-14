@@ -65,3 +65,7 @@ temp/
 # Cache
 .cache/
 *.cache
+
+# Claude
+.claude/
+CLAUDE.md
