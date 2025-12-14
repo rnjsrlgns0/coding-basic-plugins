@@ -1,0 +1,55 @@
+{
+  "name": "coding-basic-plugins",
+  "owner": {
+    "name": "ghgwon",
+    "email": "ghgwon@cubig.ai"
+  },
+  "plugins": [
+    {
+      "name": "development",
+      "source": "./plugins/development",
+      "mcpServers": {
+        "context7-mcp": {
+          "command": "npx",
+          "args": ["-y", "@upstash/context7-mcp@latest"]
+        },
+        "playwright-mcp": {
+          "command": "npx",
+          "args": ["-y", "@playwright/mcp@latest"]
+        },
+        "serena-mcp": {
+          "command": "uvx",
+          "args": ["--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server", "--context", "agent"],
+          "env": {
+            "SERENA_PROJECTS_YML_PATH": "${SERENA_PROJECTS_YML_PATH:-~/.serena/projects.yml}"
+          }
+        }
+      }
+    },
+    {
+      "name": "data-science",
+      "source": "./plugins/data-science",
+      "mcpServers": {
+        "context7-mcp": {
+          "command": "npx",
+          "args": ["-y", "@upstash/context7-mcp@latest"]
+        },
+        "serena-mcp": {
+          "command": "uvx",
+          "args": ["--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server", "--context", "agent"],
+          "env": {
+            "SERENA_PROJECTS_YML_PATH": "${SERENA_PROJECTS_YML_PATH:-~/.serena/projects.yml}"
+          }
+        },
+        "jupyter-mcp-server": {
+          "command": "uvx",
+          "args": ["jupyter-mcp-server@latest"]
+        },
+        "antv-chart-mcp": {
+          "command": "npx",
+          "args": ["-y", "@antv/mcp-server-chart"]
+        }
+      }
+    }
+  ]
+}
